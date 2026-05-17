@@ -1,0 +1,43 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+<h2 class="mb-4">Daftar Kategori Buku</h2>
+
+<div class="row">
+
+<?php $__currentLoopData = $kategori_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kategori): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+<div class="col-md-4 mb-4">
+
+    <div class="card h-100">
+
+        <div class="card-body">
+
+            <h4><?php echo e($kategori['nama']); ?></h4>
+
+            <p><?php echo e($kategori['deskripsi']); ?></p>
+
+            <span class="badge bg-primary">
+                <?php echo e($kategori['jumlah_buku']); ?> Buku
+            </span>
+
+            <br><br>
+
+            <a href="<?php echo e(route('kategori.show', $kategori['id'])); ?>"
+               class="btn btn-success">
+               Detail
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\semester 4\matkul pemweb2\kuliah\kuliahku\resources\views/kategori/index.blade.php ENDPATH**/ ?>

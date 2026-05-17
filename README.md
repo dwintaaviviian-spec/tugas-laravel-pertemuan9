@@ -60,14 +60,3 @@ http://127.0.0.1:8000
 <img width="918" height="477" alt="search kategori" src="https://github.com/user-attachments/assets/22667219-b99e-4267-a958-4ed955ee04a5" />
 
 
----
-
-# Kesimpulan
-
-Tugas berhasil menerapkan:
-- Routing Laravel
-- Blade View
-- Controller MVC
-- Bootstrap 5
-- Sistem anggota perpustakaan
-- Sistem kategori buku

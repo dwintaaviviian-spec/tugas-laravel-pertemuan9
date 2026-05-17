@@ -1,98 +1,283 @@
-# Tugas Pertemuan 9 - CRUD Anggota Perpustakaan
+````md
+# Tugas Praktikum Pemrograman Web II
 
-Mini Project CRUD menggunakan PHP Native dan MySQLi untuk mengelola data anggota perpustakaan.
+## Identitas Mahasiswa
 
----
-
-# Identitas Mahasiswa
-
-- Nama : Dwinta Vivian Acintya Syahda
-- NIM : 60324053
-- Kelas : Pemrograman Web II B
+| Keterangan | Data |
+|---|---|
+| Nama | Dwinta Vivian Acintya Syahda |
+| NIM | 60324053 |
+| Kelas | Pemrograman Web II B |
 
 ---
 
 # Deskripsi Project
 
-Project ini dibuat untuk memenuhi tugas praktikum Pemrograman Web II tentang implementasi CRUD (Create, Read, Update, Delete) menggunakan PHP Native dan database MySQL.
+Project ini dibuat untuk memenuhi tugas Praktikum Pemrograman Web II menggunakan framework Laravel.
 
-Sistem ini digunakan untuk mengelola data anggota perpustakaan seperti:
-- tambah anggota
-- edit anggota
-- hapus anggota
-- pencarian data anggota
-- filter data anggota
-- upload foto anggota
+Project terdiri dari:
+- Routing dan View Anggota Perpustakaan
+- Controller Kategori Buku
+- Implementasi konsep MVC
+- Tampilan Bootstrap 5
 
 ---
 
-# Fitur Project
+# Tugas 1 - Routing dan View Anggota
 
-## READ
-- Menampilkan list anggota dalam tabel
-- Pagination 10 data per halaman
-- Search berdasarkan nama/email/telepon
-- Filter status anggota
-- Filter jenis kelamin
-- Badge status aktif dan nonaktif
-- Badge jenis kelamin
-- Menampilkan foto anggota
-- Dashboard statistik anggota
+## Fitur
+- Routing halaman anggota
+- Routing detail anggota
+- Tabel daftar anggota
+- Detail anggota
+- Bootstrap 5
+- Badge status anggota
+- Link detail anggota
 
-## CREATE
-- Form tambah anggota
-- Upload foto anggota
-- Validasi email
-- Validasi nomor telepon
-- Validasi umur minimal 10 tahun
-- Default status aktif
-- Default tanggal daftar hari ini
+---
 
-## UPDATE
-- Edit data anggota
-- Update foto anggota
-- Validasi data
-- Menampilkan data lama pada form edit
+## Route Yang Digunakan
 
-## DELETE
-- Hapus data anggota
-- Konfirmasi hapus data
-- Hapus foto otomatis dari folder uploads
+```php
+Route::get('/anggota', function () {
+
+    $anggota_list = [
+        [
+            'id' => 1,
+            'kode' => 'AGT-001',
+            'nama' => 'Budi Santoso',
+            'email' => 'budi@email.com',
+            'telepon' => '081234567890',
+            'alamat' => 'Jakarta',
+            'status' => 'Aktif'
+        ]
+    ];
+
+    return view('anggota.index', compact('anggota_list'));
+});
+
+Route::get('/anggota/{id}', function ($id) {
+
+    return view('anggota.show');
+});
+````
+
+---
+
+## View Yang Dibuat
+
+Folder:
+
+```bash
+resources/views/anggota/
+```
+
+File:
+
+* index.blade.php
+* show.blade.php
+
+---
+
+# Tugas 2 - Controller Kategori Buku
+
+## Controller
+
+Generate controller:
+
+```bash
+php artisan make:controller KategoriController
+```
+
+---
+
+## Method Yang Dibuat
+
+### index()
+
+Menampilkan daftar kategori buku.
+
+### show($id)
+
+Menampilkan detail kategori dan daftar buku.
+
+### search($keyword)
+
+Menampilkan hasil pencarian kategori.
+
+---
+
+## Route Controller
+
+```php
+use App\Http\Controllers\KategoriController;
+
+Route::get('/kategori', [KategoriController::class, 'index']);
+
+Route::get('/kategori/{id}', [KategoriController::class, 'show']);
+
+Route::get('/kategori/search/{keyword}', [KategoriController::class, 'search']);
+```
+
+---
+
+## View Kategori
+
+Folder:
+
+```bash
+resources/views/kategori/
+```
+
+File:
+
+* index.blade.php
+* show.blade.php
+* search.blade.php
 
 ---
 
 # Teknologi Yang Digunakan
 
-- PHP Native
-- MySQLi
-- Bootstrap 5
-- HTML
-- CSS
-- XAMPP
-- phpMyAdmin
+* Laravel
+* PHP
+* Bootstrap 5
+* Blade Template
+* MVC
 
 ---
 
-# Struktur Folder
+# Cara Menjalankan Project
+
+## 1. Clone Repository
 
 ```bash
-perpustakaan/
-│
-├── config/
-│   └── database.php
-│
-├── includes/
-│   ├── header.php
-│   └── footer.php
-│
-├── modules/
-│   └── anggota/
-│       ├── index.php
-│       ├── create.php
-│       ├── edit.php
-│       ├── delete.php
-│       └── uploads/
-│
-├── assets/
-│
-└── README.md
+git clone https://github.com/USERNAME/NAMA-REPOSITORY.git
+```
+
+---
+
+## 2. Masuk Folder Project
+
+```bash
+cd nama-project
+```
+
+---
+
+## 3. Install Dependency
+
+```bash
+composer install
+```
+
+---
+
+## 4. Jalankan Server Laravel
+
+```bash
+php artisan serve
+```
+
+---
+
+## 5. Buka Browser
+
+```bash
+http://127.0.0.1:8000
+```
+
+---
+
+# Screenshot Project
+
+## Halaman Daftar Anggota
+
+Tambahkan screenshot di bawah ini:
+
+```md
+![Daftar Anggota](images/anggota-index.png)
+```
+
+---
+
+## Halaman Detail Anggota
+
+```md
+![Detail Anggota](images/anggota-detail.png)
+```
+
+---
+
+## Halaman Kategori Buku
+
+```md
+![Kategori Buku](images/kategori-index.png)
+```
+
+---
+
+## Halaman Detail Kategori
+
+```md
+![Detail Kategori](images/kategori-detail.png)
+```
+
+---
+
+## Halaman Search Kategori
+
+```md
+![Search Kategori](images/kategori-search.png)
+```
+
+---
+
+# Cara Menambahkan Screenshot
+
+## 1. Buat Folder
+
+Di dalam project buat folder:
+
+```bash
+images
+```
+
+---
+
+## 2. Masukkan Screenshot
+
+Contoh:
+
+* anggota-index.png
+* anggota-detail.png
+* kategori-index.png
+* kategori-detail.png
+* kategori-search.png
+
+---
+
+## 3. Push Lagi Ke GitHub
+
+```bash
+git add .
+git commit -m "menambahkan screenshot"
+git push
+```
+
+---
+
+# Kesimpulan
+
+Project berhasil mengimplementasikan:
+
+* Routing Laravel
+* Blade View
+* Controller MVC
+* Dynamic Route
+* Bootstrap 5
+* Sistem anggota perpustakaan
+* Sistem kategori buku
+
+```
+```

@@ -1,4 +1,4 @@
-# Tugas Praktikum Pemrograman Web II
+# Tugas Pertemuan-9 Pemrograman Web II
 
 ## Identitas Mahasiswa
 Nama : Dwinta Vivian Acintya Syahda  
@@ -7,21 +7,6 @@ Kelas : Pemrograman Web II B
 
 ---
 
-# Deskripsi Project
-
-Project ini dibuat menggunakan Laravel untuk memenuhi tugas Praktikum Pemrograman Web II.
-
-Fitur yang dibuat:
-- Routing Laravel
-- View Blade
-- Controller MVC
-- Bootstrap 5
-- Sistem Anggota Perpustakaan
-- Sistem Kategori Buku
-
----
-
-# Fitur Project
 
 ## Tugas 1 - Anggota
 - Halaman daftar anggota
@@ -39,12 +24,6 @@ Fitur yang dibuat:
 
 ---
 
-# Teknologi
-- Laravel
-- PHP
-- Bootstrap 5
-- Blade Template
-- MVC
 
 ---
 
